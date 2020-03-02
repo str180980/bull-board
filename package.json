@@ -29,7 +29,7 @@
     "prepublishOnly": "npm run build:publish",
     "prepare": "npm run build",
     "lint": "eslint \"./src/**/*.ts*\"",
-    "build": "npm run build:clean && npm run build:ui && tsc",
+    "build": "npm run build:clean && npm run build:ui && tsc && cp ./src/ui/index.ejs ./dist/ui && cp ./src/ui/index.css ./dist/ui && cp ./src/ui/xcode.css ./dist/ui",
     "build:publish": "npm run build:clean && npm run build:ui && tsc --project tsconfig.publish.json",
     "build:ui": "NODE_ENV=production webpack",
     "build:ui:watch": "webpack --watch",
