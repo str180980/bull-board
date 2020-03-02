@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "prepublishOnly": "npm run build:publish",
-    "prepare": "npm run build:publish",
+    "prepare": "npm run build",
     "lint": "eslint \"./src/**/*.ts*\"",
     "build": "npm run build:clean && npm run build:ui && tsc",
     "build:publish": "npm run build:clean && npm run build:ui && tsc --project tsconfig.publish.json",
