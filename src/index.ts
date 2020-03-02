@@ -2,7 +2,6 @@ import express, { RequestHandler } from 'express'
 import { ParamsDictionary } from 'express-serve-static-core'
 import path from 'path'
 import { Queue } from 'bull'
-import { Queue as QueueMq } from 'bullmq'
 
 import { queuesHandler } from './routes/queues'
 import { retryAll } from './routes/retryAll'
@@ -34,9 +33,9 @@ router.put('/queues/:queueName/:id/retry', wrapAsync(retryJob))
 router.put('/queues/:queueName/:id/promote', wrapAsync(promoteJob))
 router.put('/queues/:queueName/clean/:queueStatus', wrapAsync(cleanAll))
 
-export const setQueues = (bullQueues: Queue[] | QueueMq[]) => {
-  bullQueues.forEach((queue: Queue | QueueMq) => {
-    const name = queue instanceof QueueMq ? queue.toKey('~') : queue.name
+export const setQueues = (bullQueues: Queue[]) => {
+  bullQueues.forEach((queue: Queue) => {
+    const name = queue.name
 
     bullBoardQueues[name] = {
       queue,
