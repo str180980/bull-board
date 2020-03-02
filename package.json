@@ -26,19 +26,19 @@
     "static/**/*"
   ],
   "scripts": {
-    "prepublishOnly": "yarn build:publish",
-    "prepare": "yarn build",
+    "prepublishOnly": "npm run build:publish",
+    "prepare": "npm run build",
     "lint": "eslint \"./src/**/*.ts*\"",
-    "build": "yarn build:clean && yarn build:ui && yarn build:routes",
-    "build:publish": "yarn build:clean && yarn build:ui && yarn build:routes --project tsconfig.publish.json",
+    "build": "npm run build:clean && npm run build:ui && npm run build:routes",
+    "build:publish": "npm run build:clean && npm run build:ui && npm run build:routes --project tsconfig.publish.json",
     "build:ui": "NODE_ENV=production webpack",
     "build:ui:watch": "webpack --watch",
-    "build:routes": "yarn tsc",
+    "build:routes": "tsc",
     "build:clean": "rm -rf ./static ./dist",
     "start:dev:docker": "docker-compose up -d",
     "start:dev:server": "nodemon example.js",
-    "start:dev": "yarn start:dev:docker && yarn start:dev:server",
-    "test": "yarn ts-node src/dockest"
+    "start:dev": "npm run start:dev:docker && npm run start:dev:server",
+    "test": "npm run ts-node src/dockest"
   },
   "dependencies": {
     "date-fns": "2.9.0",

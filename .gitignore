@@ -2,6 +2,8 @@ node_modules/
 static
 dist
 yarn-error.log
+package-lock.json
 *.rdb
 website/build
 docker-compose.dockest-generated.yml
+.idea/
