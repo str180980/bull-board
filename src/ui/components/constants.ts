@@ -46,6 +46,7 @@ export const FIELDS: Record<Status, Field[]> = {
   ],
   failed: [
     'attempts',
+    'data',
     'failedReason',
     'id',
     'name',
